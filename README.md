@@ -63,3 +63,16 @@ This will return `mysecretpassword` encrypted using the config server's encrypt 
 fooSecret={cipher}4d1e7d0805e08d71c954e022cda7499b3a81a889cdc340413a5ce1c57ade4cf2acaf7c652d4899ecb240b1738d38656
 ```
 
+## Creating a New Encrypt Key
+
+Obviously you shouldn't use the encrypt key in this sample's config-server.json for anything you actually want to protect in the real world. You can create a new key using OpenSSL, I'm using version `OpenSSL 1.0.2k  26 Jan 2017`.
+
+On OS X the following command generates a new 4096 bit key, strips the newline characters and places it into the clipboard.
+
+```
+$ openssl genpkey -algorithm RSA -outform PEM -pkeyopt rsa_keygen_bits:4096 | tr -d '\n' | pbcopy
+```
+
+NOTE - On Windows you can replace the `pbcopy` command with `clip` and run the above command using git bash shell.
+
+With your new private key in your clipboard you can now paste it into your config-server.json file under `encrypt.key` and run your `cf create-service` command.
