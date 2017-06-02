@@ -55,7 +55,7 @@ $ ./encryptsecret.sh servicekey.json mysecretpassword
 4d1e7d0805e08d71c954e022cda7499b3a81a889cdc340413a5ce1c57ade4cf2acaf7c652d4899ecb240b1738d386564
 ```
 
-NOTE - If your using Windows you can run the encryptsecret.sh shell script from the [git bash terminal](https://git-for-windows.github.io/).
+__NOTE -__ If your using Windows you can run the encryptsecret.sh shell script from the [git bash terminal](https://git-for-windows.github.io/).
 
 This will return `mysecretpassword` encrypted using the config server's encrypt endpoint. Take the encrypted text and paste it into the appropriate config file in your config repo. If placing into a Java properties file, it should be prefixed with `{cipher}`. For example:
 
@@ -73,6 +73,6 @@ On OS X the following command generates a new 4096 bit key, strips the newline c
 $ openssl genpkey -algorithm RSA -outform PEM -pkeyopt rsa_keygen_bits:4096 | tr -d '\n' | pbcopy
 ```
 
-NOTE - On Windows you can replace the `pbcopy` command with `clip` and run the above command using git bash shell.
+__NOTE -__ On Windows you can replace the `pbcopy` command with `clip` and run the above command using git bash shell.
 
 With your new private key in your clipboard you can now paste it into your config-server.json file under `encrypt.key` and run your `cf create-service` command.
