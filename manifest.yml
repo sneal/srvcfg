@@ -1,0 +1,7 @@
+---
+applications:
+  - name: srvcfg
+    memory: 512M
+    host: srvcfg
+    services:
+      - srvcfg-config-server
